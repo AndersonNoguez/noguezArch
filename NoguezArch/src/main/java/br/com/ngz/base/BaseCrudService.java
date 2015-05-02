@@ -1,19 +1,20 @@
 package br.com.ngz.base;
 
-import br.com.ngz.repository.GenericDaoImpl;
+import br.com.ngz.repository.GenericDAOImpl;
 import br.com.ngz.service.CrudService;
+import java.io.Serializable;
 import java.util.List;
 
 /**
  *
  * @author andersonNoguez
- * @param <PK> identificador
  * @param <T> entidade
+ * @param <PK> identificador
  */
-public abstract class BaseCrudService<PK, T> implements CrudService<PK, T>{
+public abstract class BaseCrudService<T extends BaseEntity, PK extends Serializable> implements CrudService<T, PK>{
     
     @Override
-    public abstract GenericDaoImpl getDAO();
+    public abstract GenericDAOImpl getDAO();
         
     @Override
     public void save(T entity) {

@@ -1,30 +1,25 @@
-package br.com.ngz.service;
+package br.com.ngz.repository;
 
-import br.com.ngz.repository.GenericDAOImpl;
 import java.util.List;
-import javax.ejb.Local;
 
 /**
  *
- * @author andersonNoguez
- * @param <T> entidade
+ * @author anoguez
  * @param <PK> identificador
+ * @param <T> entidade
  */
-@Local
-public interface CrudService <T, PK>{
-    
-    public abstract GenericDAOImpl getDAO();
-    
+public interface GenericDao_<PK, T> {
+
     public void save(T entity);
 
     public void update(T entity);
 
     public void delete(T entity);
-    
+
     public void deleteByIds(List<T> listEntities);
 
     public T findById(PK pk);
 
     public List<T> findAll();
-    
+
 }

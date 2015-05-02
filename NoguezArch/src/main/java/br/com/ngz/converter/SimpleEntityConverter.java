@@ -32,7 +32,7 @@ public class SimpleEntityConverter implements Converter {
             // adiciona item como atributo do componente
             this.addAttribute(component, entity);
 
-            Integer codigo = entity.getId();
+            Integer codigo = (Integer) entity.getId();
             if (codigo != null) {
                 return String.valueOf(codigo);
             }

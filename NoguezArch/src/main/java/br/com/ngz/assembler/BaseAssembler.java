@@ -1,4 +1,4 @@
-package br.com.ngz.base;
+package br.com.ngz.assembler;
 
 import java.io.Serializable;
 import java.util.ArrayList;
