@@ -8,7 +8,7 @@ import java.util.List;
  * @param <PK> identificador
  * @param <T> entidade
  */
-public interface GenericDao<PK, T> {
+public interface GenericDAO<PK, T> {
 
     public void save(T entity);
 

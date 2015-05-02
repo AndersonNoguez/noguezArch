@@ -1,6 +1,6 @@
 package br.com.ngz.service;
 
-import br.com.ngz.repository.GenericDAOImpl;
+import br.com.ngz.repository.GenericDaoImpl;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -13,7 +13,7 @@ import javax.ejb.Local;
 @Local
 public interface CrudService <T, PK>{
     
-    public abstract GenericDAOImpl getDAO();
+    public abstract GenericDaoImpl getDAO();
     
     public void save(T entity);
 
