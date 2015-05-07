@@ -1,6 +1,5 @@
 package br.com.ngz.base;
 
-import br.com.ngz.service.CrudService;
 import java.util.List;
 
 /**
@@ -21,4 +20,5 @@ public interface BaseFacade<T, PK>{
 
     public List<T> findAll();
     
+    public void deleteByIds(List<T> listEntities);
 }

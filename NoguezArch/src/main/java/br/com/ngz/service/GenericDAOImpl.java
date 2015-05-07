@@ -1,5 +1,6 @@
-package br.com.ngz.repository;
+package br.com.ngz.service;
 
+import br.com.ngz.repository.GenericDAO;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import javax.persistence.EntityManager;
