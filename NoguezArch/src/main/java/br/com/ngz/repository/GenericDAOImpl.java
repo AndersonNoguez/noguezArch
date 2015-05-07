@@ -1,4 +1,4 @@
-package br.com.ngz.service;
+package br.com.ngz.repository;
 
 import br.com.ngz.repository.GenericDAO;
 import java.lang.reflect.ParameterizedType;
