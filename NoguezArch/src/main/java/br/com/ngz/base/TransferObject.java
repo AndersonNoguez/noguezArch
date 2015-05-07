@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Interface que todos TO's devem implementar
  * para garantir sua serialização
  * @author andersonNoguez
- * @param <T>
+ * @param <PK>
  */
-public interface TransferObject<T extends Serializable> extends BaseEntity<T>{
+public interface TransferObject<PK extends Serializable> extends BaseEntity<PK>{
 }

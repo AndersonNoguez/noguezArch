@@ -5,20 +5,20 @@ import java.io.Serializable;
 /**
  * Interface que todas entidades devem implementar
  * @author Anderson Noguez
- * @param <T>
+ * @param <PK>
  */
 
-public interface BaseEntity<T extends Serializable> extends Model{
+public interface BaseEntity<PK extends Serializable> extends Model{
     
     /**
      * Retorna o Id da entidade
      * @return
      */
-    T getId();  
+    PK getId();  
     
     /**
      * Define o valor para o Id da entidade
      * @param id
      */
-    void setId(T id);
+    void setId(PK id);
 }
