@@ -1,6 +1,5 @@
 package br.com.ngz.repository;
 
-import br.com.ngz.repository.GenericDao_;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -13,6 +12,7 @@ import javax.persistence.PersistenceContext;
  * @param <T> Entidade a ser passada
  */
 @SuppressWarnings("unchecked")
+@Deprecated
 public class GenericDaoImpl_<PK, T> implements GenericDao_<PK, T> {
 
     @PersistenceContext

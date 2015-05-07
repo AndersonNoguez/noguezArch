@@ -8,6 +8,7 @@ import java.util.List;
  * @param <PK> identificador
  * @param <T> entidade
  */
+@Deprecated
 public interface GenericDao_<PK, T> {
 
     public void save(T entity);

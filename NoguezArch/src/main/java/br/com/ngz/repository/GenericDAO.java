@@ -5,10 +5,10 @@ import java.util.List;
 /**
  *
  * @author anoguez
- * @param <PK> identificador
  * @param <T> entidade
+ * @param <PK> identificador
  */
-public interface GenericDAO<PK, T> {
+public interface GenericDAO<T, PK> {
 
     public void save(T entity);
 

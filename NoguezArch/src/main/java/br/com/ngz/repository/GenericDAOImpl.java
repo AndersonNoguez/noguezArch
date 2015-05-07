@@ -12,10 +12,14 @@ import javax.persistence.PersistenceContext;
  * @param <T> Entidade a ser passada
  */
 @SuppressWarnings("unchecked")
-public class GenericDaoImpl<PK, T> implements GenericDAO<PK, T> {
+public abstract class GenericDAOImpl<T, PK> implements GenericDAO<T, PK> {
 
     @PersistenceContext
     protected EntityManager entityManager;
+    
+    public EntityManager getEntityManager(){
+        return entityManager;
+    }
 
     @Override
     public void save(T entity) {
@@ -55,7 +59,6 @@ public class GenericDaoImpl<PK, T> implements GenericDAO<PK, T> {
                 delete(entityManager.merge(entity));
             }
         }
-
     }
 
 }
