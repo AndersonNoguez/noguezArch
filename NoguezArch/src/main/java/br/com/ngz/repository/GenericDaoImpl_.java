@@ -13,7 +13,7 @@ import javax.persistence.PersistenceContext;
  */
 @SuppressWarnings("unchecked")
 @Deprecated
-public class GenericDaoImpl_<PK, T> implements GenericDao_<PK, T> {
+public class GenericDaoImpl_<PK, T> implements GenericDAO<T, PK> {
 
     @PersistenceContext
     protected EntityManager entityManager;

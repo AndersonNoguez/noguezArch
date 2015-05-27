@@ -7,15 +7,18 @@ import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author andersonNoguez
- * @param <PK> Identificador
- * @param <T> Entidade a ser passada
+ * @author Anderson Noguez
+ * @param <T>
+ * @param <PK>
  */
-@SuppressWarnings("unchecked")
-public class GenericDaoImpl<PK, T> implements GenericDAO<PK, T> {
+public abstract class BaseDAO<T, PK> implements GenericDAO<T, PK>{
 
     @PersistenceContext
     protected EntityManager entityManager;
+
+    public EntityManager getEntityManager() {
+        return entityManager;
+    }
 
     @Override
     public void save(T entity) {
@@ -55,8 +58,5 @@ public class GenericDaoImpl<PK, T> implements GenericDAO<PK, T> {
                 delete(entityManager.merge(entity));
             }
         }
-
     }
-
 }
-
