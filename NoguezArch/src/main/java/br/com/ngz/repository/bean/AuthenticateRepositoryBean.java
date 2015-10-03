@@ -2,11 +2,13 @@ package br.com.ngz.repository.bean;
 
 import br.com.ngz.base.Authenticavel;
 import br.com.ngz.repository.AuthenticateRepository;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-public class AuthenticateRepositoryBean<T> implements AuthenticateRepository<Authenticavel> {
+@Stateless
+public class AuthenticateRepositoryBean implements AuthenticateRepository {
 
     @PersistenceContext
     protected EntityManager entityManager;
