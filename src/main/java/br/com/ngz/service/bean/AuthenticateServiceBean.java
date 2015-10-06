@@ -11,7 +11,7 @@ import javax.ejb.Stateless;
  * @author Anderson
  */
 @Stateless
-public abstract class AuthenticateServiceBean implements AuthenticateService{
+public class AuthenticateServiceBean implements AuthenticateService{
 
     @EJB
     private AuthenticateRepository authenticateRepository;
