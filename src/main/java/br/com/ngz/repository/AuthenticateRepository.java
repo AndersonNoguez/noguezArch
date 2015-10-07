@@ -1,13 +1,12 @@
 package br.com.ngz.repository;
 
-import br.com.ngz.base.Authenticavel;
-
 /**
  *
  * @author Anderson
+ * @param <T>
  */
-public interface AuthenticateRepository {
+public interface AuthenticateRepository<T> {
 
-    Authenticavel verificaLogin(String login, String senha);
+    T verificaLogin(String login, String senha);
 
 }

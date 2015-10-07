@@ -11,18 +11,18 @@ import javax.ejb.Stateless;
  * @author Anderson
  */
 @Stateless
-public class AuthenticateServiceBean implements AuthenticateService{
+public class AuthenticateServiceBean<T> implements AuthenticateService<T>{
 
     @EJB
-    private AuthenticateRepository authenticateRepository;
+    private AuthenticateRepository<T> authenticateRepository;
     
     @Override
-    public Authenticavel verificaLogin(String login, String senha) {
-        return (Authenticavel) this.authenticateRepository.verificaLogin(login, senha);
+    public T verificaLogin(String login, String senha) {
+        return (T) this.authenticateRepository.verificaLogin(login, senha);
     }
 
     @Override
-    public Authenticavel verificaLogin(Authenticavel entityXML) {
+    public T verificaLogin(Authenticavel entityXML) {
         if (entityXML == null || entityXML.getLogin() == null && entityXML.getPassword() == null) {
             return null; //TODO refatorar para retornar mensagem de erro
         }
@@ -31,7 +31,7 @@ public class AuthenticateServiceBean implements AuthenticateService{
 
     @Override
     public boolean isAuthenticate(String login, String senha) {
-        Authenticavel authenticavel = this.verificaLogin(login, senha);
+        T authenticavel = this.verificaLogin(login, senha);
         if (authenticavel != null) {
             return Boolean.TRUE;
         }
@@ -39,11 +39,11 @@ public class AuthenticateServiceBean implements AuthenticateService{
     }
 
     @Override
-    public boolean isAuthenticate(Authenticavel entityXML) {
-        if (entityXML == null || entityXML.getLogin() == null && entityXML.getPassword() == null) {
+    public boolean isAuthenticate(T entityXML) {
+        if (entityXML == null || ((Authenticavel)entityXML).getLogin() == null && ((Authenticavel)entityXML).getPassword() == null) {
             return false; //TODO refatorar para retornar mensagem de erro
         }
-        return isAuthenticate(entityXML.getLogin(), entityXML.getPassword());
+        return isAuthenticate(((Authenticavel)entityXML).getLogin(), ((Authenticavel)entityXML).getPassword());
     }
 
 }

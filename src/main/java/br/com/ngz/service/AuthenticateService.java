@@ -6,16 +6,17 @@ import javax.ejb.Local;
 /**
  *
  * @author Anderson
+ * @param <T>
  */
 @Local
-public interface AuthenticateService {
+public interface AuthenticateService<T> {
 
-    Authenticavel verificaLogin(String login, String senha);
+    T verificaLogin(String login, String senha);
 
-    Authenticavel verificaLogin(Authenticavel entityXML);
+    T verificaLogin(Authenticavel entityXML);
 
     boolean isAuthenticate(String login, String senha);
 
-    boolean isAuthenticate(Authenticavel entityXML);
+    boolean isAuthenticate(T entityXML);
 
 }
