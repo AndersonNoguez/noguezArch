@@ -13,6 +13,7 @@
         
         <version.primeFaces>5.1</version.primeFaces>
         <version.spring>4.0.5.RELEASE</version.spring>
+		<version.querydsl>3.6.2</version.querydsl>
     </properties>
     
     <dependencies>
@@ -29,6 +30,18 @@
             <artifactId>primefaces</artifactId>
             <version>${version.primeFaces}</version>
             <scope>compile</scope>
+        </dependency>
+		
+		<dependency>
+            <groupId>com.mysema.querydsl</groupId>
+            <artifactId>querydsl-apt</artifactId>
+            <version>${version.querydsl}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.mysema.querydsl</groupId>
+            <artifactId>querydsl-jpa</artifactId>
+            <version>${version.querydsl}</version>
         </dependency>
         
     </dependencies>
