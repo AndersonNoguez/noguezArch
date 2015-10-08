@@ -23,11 +23,6 @@ public class BaseCriteria<T> {
         return criteriaBuilder;
     }
 
-//    CriteriaQuery<(1)Person> criteria = builder.createQuery( Person.class );
-//Root<Person> personRoot = criteria.from( Person.class );
-//criteria.selec(2)t( personRoot );
-//criteria.where(3)( builder.equal( personRoot.get( Person_.eyeColor ), "brown" ) );
-//List<Person> people = em.createQuery( criteria ).getResultList();
     public CriteriaQuery<T> createCriteria(T entity) {
         return (CriteriaQuery<T>) getCriteriaBuilder().createQuery(entity.getClass());
     }

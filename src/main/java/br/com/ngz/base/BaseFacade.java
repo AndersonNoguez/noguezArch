@@ -5,7 +5,7 @@ import java.util.List;
 /**
  *
  * @author Anderson Noguez
- * @param <T> TO
+ * @param <T> TO ou Model
  * @param <PK>
  */
 public interface BaseFacade<T, PK>{
