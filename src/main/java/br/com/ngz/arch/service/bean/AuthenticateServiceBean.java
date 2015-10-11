@@ -4,21 +4,17 @@ import br.com.ngz.arch.base.Authenticavel;
 import br.com.ngz.arch.repository.AuthenticateRepository;
 import br.com.ngz.arch.service.AuthenticateService;
 import javax.ejb.EJB;
-import javax.ejb.Stateless;
 
 /**
  *
  * @author Anderson
+ * @param <T>
  */
-@Stateless
-public class AuthenticateServiceBean<T> implements AuthenticateService<T>{
-
-    @EJB
-    private AuthenticateRepository<T> authenticateRepository;
+public abstract class AuthenticateServiceBean<T extends Authenticavel> implements AuthenticateService<T>{
     
     @Override
     public T verificaLogin(String login, String senha) {
-        return (T) this.authenticateRepository.verificaLogin(login, senha);
+        return (T) this.getDAO().verificaLogin(login, senha);
     }
 
     @Override

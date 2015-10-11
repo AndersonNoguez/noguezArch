@@ -1,15 +1,12 @@
 package br.com.ngz.arch.repository.bean;
 
-import br.com.ngz.arch.base.Authenticavel;
 import br.com.ngz.arch.repository.AuthenticateRepository;
 import java.lang.reflect.ParameterizedType;
-import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-@Stateless
-public class AuthenticateRepositoryBean<T> implements AuthenticateRepository<T> {
+public abstract class AuthenticateRepositoryBean<T> implements AuthenticateRepository<T> {
 
     @PersistenceContext
     protected EntityManager entityManager;
@@ -34,7 +31,7 @@ public class AuthenticateRepositoryBean<T> implements AuthenticateRepository<T> 
 
     private Class<?> getTypeClass() {
         return (Class<?>) ((ParameterizedType) this.getClass()
-                .getGenericSuperclass()).getActualTypeArguments()[1];
+                .getGenericSuperclass()).getActualTypeArguments()[0];
     }
     
 }

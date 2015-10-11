@@ -1,6 +1,7 @@
 package br.com.ngz.arch.service;
 
 import br.com.ngz.arch.base.Authenticavel;
+import br.com.ngz.arch.repository.AuthenticateRepository;
 import javax.ejb.Local;
 
 /**
@@ -11,6 +12,8 @@ import javax.ejb.Local;
 @Local
 public interface AuthenticateService<T> {
 
+    public abstract AuthenticateRepository getDAO();
+    
     T verificaLogin(String login, String senha);
 
     T verificaLogin(Authenticavel entityXML);
