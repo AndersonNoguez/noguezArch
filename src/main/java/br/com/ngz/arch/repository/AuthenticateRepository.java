@@ -1,12 +1,14 @@
 package br.com.ngz.arch.repository;
 
+import br.com.ngz.arch.base.Model;
+
 /**
  *
  * @author Anderson
- * @param <T>
+ * @param <E>
  */
-public interface AuthenticateRepository<T> {
+public interface AuthenticateRepository<E extends Model> {
 
-    T verificaLogin(String login, String senha);
+    E verificaLogin(String login, String senha);
 
 }

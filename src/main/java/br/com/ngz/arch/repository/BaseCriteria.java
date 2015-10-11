@@ -1,4 +1,4 @@
-package br.com.ngz.arch.base;
+package br.com.ngz.arch.repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;

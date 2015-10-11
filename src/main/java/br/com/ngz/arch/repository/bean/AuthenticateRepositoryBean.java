@@ -1,37 +1,22 @@
 package br.com.ngz.arch.repository.bean;
 
+import br.com.ngz.arch.base.Authenticavel;
 import br.com.ngz.arch.repository.AuthenticateRepository;
-import java.lang.reflect.ParameterizedType;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import br.com.ngz.arch.repository.BaseQueryDSL;
+import com.mysema.query.jpa.impl.JPAQuery;
+import com.mysema.query.types.EntityPath;
+import java.io.Serializable;
 import javax.persistence.Query;
 
-public abstract class AuthenticateRepositoryBean<T> implements AuthenticateRepository<T> {
-
-    @PersistenceContext
-    protected EntityManager entityManager;
-
-    public EntityManager getEntityManager() {
-        return entityManager;
-    }
+public abstract class AuthenticateRepositoryBean<E extends Authenticavel, PK extends Serializable, Q extends EntityPath<E>> extends BaseQueryDSL<E, PK, Q> implements AuthenticateRepository<E> {
 
     @Override
-    public T verificaLogin(String login, String password) {
-        Query query = getEntityManager().createQuery(
-                "FROM " + getTypeClass().getName() + " p "
-                + "WHERE p.login = :login"
-                + " and p.password = :password"
-        );
-
-        query.setParameter("login", login);
-        query.setParameter("password", password);
-
-        return (T) query.getSingleResult();
+    public E verificaLogin(String login, String password) {
+        Q root = getRoot();
+        JPAQuery query = new JPAQuery(entityManager);
+        query = query.from(root);
+        Query queryJPA = query.createQuery(root);
+        return (E) queryJPA.getSingleResult();
     }
 
-    private Class<?> getTypeClass() {
-        return (Class<?>) ((ParameterizedType) this.getClass()
-                .getGenericSuperclass()).getActualTypeArguments()[0];
-    }
-    
 }
