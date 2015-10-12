@@ -2,8 +2,12 @@ package br.com.ngz.arch.repository;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -11,7 +15,9 @@ import javax.persistence.PersistenceContext;
  * @param <T>
  * @param <PK>
  */
-public abstract class BaseDAO<T, PK> implements GenericDAO<T, PK>{
+public abstract class BaseDAO<T, PK> implements GenericDAO<T, PK> {
+
+    static final Logger LOGGER = Logger.getLogger(BaseDAO.class.getName());
 
     @PersistenceContext
     protected EntityManager entityManager;
@@ -59,4 +65,41 @@ public abstract class BaseDAO<T, PK> implements GenericDAO<T, PK>{
             }
         }
     }
+
+    /**
+     * Retorna um único elemento a partir de uma query JPA. O método define os
+     * parâmetros para a query (caso necessário), e executa a operação de
+     * getSingleResult da query informada, retornando um único elemento.
+     *
+     * @param query a query JPA a ser executada.
+     * @param parametersMap mapa de parâmetros (opcional).
+     * @return instância da entidade encontrada ou null em caso de falhas.
+     */
+    protected T getSingleResult(Query query, Map<String, Object> parametersMap) {
+        try {
+            addQueryParameters(query, parametersMap);
+            T entity = (T) query.getSingleResult();
+            entityManager.flush();
+            return entity;
+        } catch (Exception e) {
+            LOGGER.log(Level.SEVERE, e.getMessage(), e);
+            return null;
+        }
+    }
+
+    /**
+     * Adiciona parâmetros à uma query JPA. O método seta na query os parâmetros
+     * presentes no mapa informado, caso o mapa não esteja vazio ou nulo.
+     *
+     * @param query a query JPA que receberá os parâmetros.
+     * @param parametersMap o mapa de parâmetros a serem setados.
+     */
+    private void addQueryParameters(Query query, Map<String, Object> parametersMap) {
+        if (parametersMap != null && !parametersMap.isEmpty()) {
+            for (Map.Entry<String, Object> entry : parametersMap.entrySet()) {
+                query.setParameter(entry.getKey(), entry.getValue());
+            }
+        }
+    }
+
 }
