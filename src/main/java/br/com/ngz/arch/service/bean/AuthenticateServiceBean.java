@@ -1,9 +1,7 @@
 package br.com.ngz.arch.service.bean;
 
 import br.com.ngz.arch.base.Authenticavel;
-import br.com.ngz.arch.repository.AuthenticateRepository;
 import br.com.ngz.arch.service.AuthenticateService;
-import javax.ejb.EJB;
 
 /**
  *

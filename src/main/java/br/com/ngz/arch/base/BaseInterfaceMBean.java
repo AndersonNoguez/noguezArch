@@ -6,7 +6,7 @@ import org.primefaces.event.RowEditEvent;
  *
  * @author andersonNoguez
  */
-public interface BaseInterfaceBean<T> {
+public interface BaseInterfaceMBean<T> {
  
     public void init();
     // Salva os dados

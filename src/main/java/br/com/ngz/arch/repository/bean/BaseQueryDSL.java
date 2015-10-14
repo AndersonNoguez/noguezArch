@@ -1,4 +1,4 @@
-package br.com.ngz.arch.repository;
+package br.com.ngz.arch.repository.bean;
 
 import br.com.ngz.arch.base.Model;
 import com.mysema.query.jpa.impl.JPAQuery;

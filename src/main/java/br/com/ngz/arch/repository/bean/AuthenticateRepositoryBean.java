@@ -2,7 +2,6 @@ package br.com.ngz.arch.repository.bean;
 
 import br.com.ngz.arch.base.Authenticavel;
 import br.com.ngz.arch.repository.AuthenticateRepository;
-import br.com.ngz.arch.repository.BaseQueryDSL;
 import com.mysema.query.jpa.impl.JPAQuery;
 import com.mysema.query.types.EntityPath;
 import java.io.Serializable;

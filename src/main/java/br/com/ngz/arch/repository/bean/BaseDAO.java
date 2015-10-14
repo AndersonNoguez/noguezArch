@@ -1,5 +1,6 @@
-package br.com.ngz.arch.repository;
+package br.com.ngz.arch.repository.bean;
 
+import br.com.ngz.arch.repository.GenericDAO;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import java.util.Map;

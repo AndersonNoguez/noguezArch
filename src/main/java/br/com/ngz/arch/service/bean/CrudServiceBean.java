@@ -1,5 +1,6 @@
-package br.com.ngz.arch.base;
+package br.com.ngz.arch.service.bean;
 
+import br.com.ngz.arch.base.BaseEntity;
 import br.com.ngz.arch.repository.GenericDAO;
 import br.com.ngz.arch.service.CrudService;
 import java.io.Serializable;
@@ -11,7 +12,7 @@ import java.util.List;
  * @param <T> entidade
  * @param <PK> identificador
  */
-public abstract class BaseCrudService<T extends BaseEntity, PK extends Serializable> implements CrudService<T, PK>{
+public abstract class CrudServiceBean<T extends BaseEntity, PK extends Serializable> implements CrudService<T, PK>{
     
     @Override
     public abstract GenericDAO getDAO();

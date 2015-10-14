@@ -4,11 +4,11 @@ import java.util.ResourceBundle;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
-public class JSFUtils {
+public class JSFMessageAdapter {
 
     private static ResourceBundle resourceBundle = ResourceBundle.getBundle("messages");
 
-    private JSFUtils() {
+    private JSFMessageAdapter() {
     }
 
     public static void addMessage(FacesMessage.Severity severity, String keySummary, String keyDetail) {

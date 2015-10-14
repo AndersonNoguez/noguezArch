@@ -1,4 +1,4 @@
-package br.com.ngz.arch.base;
+package br.com.ngz.arch.facade;
 
 import java.util.List;
 
