@@ -6,7 +6,7 @@ import javax.faces.context.FacesContext;
 
 public class JSFMessageAdapter {
 
-    private static ResourceBundle resourceBundle = ResourceBundle.getBundle("messages");
+    private static final ResourceBundle resourceBundle = ResourceBundle.getBundle("messages");
 
     private JSFMessageAdapter() {
     }
