@@ -1,6 +1,5 @@
 package br.com.ngz.arch.utils;
 
-import br.com.voiza.demo.xml.estoque.Produto;
 import java.io.FileDescriptor;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -13,7 +12,7 @@ import java.io.InputStream;
 public class ImageConverter {
 
     public static byte[] imageToByte(String image) throws IOException {        
-        InputStream is = Produto.class.getResourceAsStream(image);
+        InputStream is = Object.class.getResourceAsStream(image);
         byte[] buffer = new byte[is.available()];
         is.read(buffer);
         is.close();
